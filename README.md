@@ -28,3 +28,6 @@ src/
   lib/          API calls, Stellar SDK helpers (coming next step)
 contracts/       Soroban smart contract (coming next step)
 ```
+## Deployed contract (Stellar Testnet)
+Contract address: `CBG7RWZNEQEQZWXJB7JDIFCPXULZAE6P5QY6YRI4Z4PMPIDYY555JCSD`
+Explorer: https://lab.stellar.org/r/testnet/contract/CBG7RWZNEQEQZWXJB7JDIFCPXULZAE6P5QY6YRI4Z4PMPIDYY555JCSD
