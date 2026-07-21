@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-body;
+  }
+}
+
+@layer utilities {
+  .perf-divider {
+    border-top: 1.5px dashed theme('colors.line');
+  }
+}
