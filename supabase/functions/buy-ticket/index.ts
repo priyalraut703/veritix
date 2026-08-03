@@ -123,13 +123,28 @@ async function mintTicketOnChain(
 }
 
 Deno.serve(async (req: Request) => {
+  // CORS: browsers send a preflight OPTIONS request before the real POST,
+  // and expect these headers on every response (including errors) to allow
+  // a page running on a different origin (like localhost:5173) to call
+  // this function. curl doesn't need this — only browsers enforce it,
+  // which is why our earlier curl tests worked but the browser didn't.
+  const corsHeaders = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+  };
+
+  if (req.method === "OPTIONS") {
+    return new Response(null, { headers: corsHeaders });
+  }
+
   try {
     const { email, event_id, ticket_no, purchase_price_stroops } = await req.json();
 
     if (!email || event_id == null || ticket_no == null) {
       return new Response(
         JSON.stringify({ error: "email, event_id, and ticket_no are required" }),
-        { status: 400 }
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
@@ -157,14 +172,14 @@ Deno.serve(async (req: Request) => {
     });
 
     return new Response(JSON.stringify({ ticket, tx_hash: txHash }), {
-      headers: { "Content-Type": "application/json" },
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 200,
     });
   } catch (err) {
     console.error(err);
     return new Response(JSON.stringify({ error: String(err) }), {
       status: 500,
-      headers: { "Content-Type": "application/json" },
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
 });
