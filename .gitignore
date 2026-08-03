@@ -3,3 +3,6 @@ dist
 .env
 .env.local
 target/
+supabase/.temp/
+supabase/supabase/
+body.json
