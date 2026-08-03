@@ -3,28 +3,23 @@ type TicketStubProps = {
   subtitle: string
   ticketNo: string
   tier?: string
-  accent?: 'coral' | 'cobalt' | 'lime'
+  accent?: 'blue' | 'beige' | 'green'
   verified?: boolean
   rotateClass?: string
 }
 
 const accentMap = {
-  coral: 'bg-coral-dim',
-  cobalt: 'bg-cobalt-dim',
-  lime: 'bg-lime',
+  blue: 'bg-pale-blue',
+  beige: 'bg-beige',
+  green: 'bg-soft-green',
 }
 
-/**
- * TicketStub is VeriTix's signature component: every ticket in the app
- * (wallet, resale listing, gate-scan result) renders through this so the
- * "physical ticket stub" identity stays consistent everywhere.
- */
 export default function TicketStub({
   eventName,
   subtitle,
   ticketNo,
   tier = 'GA',
-  accent = 'coral',
+  accent = 'beige',
   verified = false,
   rotateClass = '',
 }: TicketStubProps) {
@@ -36,13 +31,13 @@ export default function TicketStub({
         {subtitle}
       </div>
       <div className="font-display font-bold text-xl leading-tight mb-3.5">{eventName}</div>
-      <div className="flex justify-between items-center perf-divider pt-3 font-mono text-[11px]">
+      <div className="flex justify-between items-center pt-3 border-t-[1.5px] border-dashed border-ink/40 font-mono text-[11px]">
         <span>{tier}</span>
         <span>#{ticketNo}</span>
       </div>
       {verified && (
         <div className="absolute -bottom-2 -right-1.5 bg-ink text-white font-mono text-[11px] font-semibold px-3.5 py-2 rounded-pill flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-lime animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-soft-green animate-pulse" />
           on-chain match
         </div>
       )}

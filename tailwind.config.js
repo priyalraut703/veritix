@@ -4,16 +4,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Design system tokens — see src/styles/tokens.md for rationale.
         paper: '#FFFFFF',
-        ink: '#12110F',
-        'ink-soft': '#68655D',
-        line: '#E7E4DA',
-        coral: '#FF4A2E',
-        'coral-dim': '#FFE6E0',
-        cobalt: '#2A3AFF',
-        'cobalt-dim': '#E4E6FF',
-        lime: '#D8FF3E',
+        ink: '#000000',
+        'ink-soft': '#73787C',
+        line: '#C5C6C7',
+        'pale-blue': '#D7E5F0',
+        beige: '#C9AD93',
+        taupe: '#554940',
+        'soft-green': '#879A77',
       },
       fontFamily: {
         display: ['"Bricolage Grotesque"', 'sans-serif'],
@@ -25,8 +23,8 @@ export default {
         pill: '999px',
       },
       boxShadow: {
-        hard: '4px 4px 0 #12110F',
-        'hard-sm': '2px 2px 0 #12110F',
+        hard: '4px 4px 0 #000000',
+        'hard-sm': '2px 2px 0 #000000',
       },
       keyframes: {
         marquee: {
