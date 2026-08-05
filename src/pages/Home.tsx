@@ -43,7 +43,7 @@ export default function Home() {
         <div className="absolute -top-20 -right-20 w-[420px] h-[420px] bg-soft-green/40 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute top-40 -left-32 w-[360px] h-[360px] bg-pale-blue/60 rounded-full blur-[100px] pointer-events-none" />
 
-        <div className="relative max-w-[1120px] mx-auto px-8 pt-10">
+        <div className="relative max-w-[1120px] mx-auto px-6 sm:px-8 pt-6 sm:pt-10">
           <div className="grid md:grid-cols-[1fr_1fr] gap-8 items-center pb-10">
             <div>
               <div className="flex gap-2 mb-7 flex-wrap">
@@ -54,11 +54,11 @@ export default function Home() {
                   zero gas shock
                 </span>
               </div>
-              <h1 className="font-display font-extrabold tracking-tight mb-6 leading-[0.94]">
-                <span className="block text-[72px]">Scalpers</span>
-                <span className="block text-[72px]">hate this</span>
+              <h1 className="font-display font-extrabold tracking-tight mb-6 leading-[0.98] sm:leading-[0.94]">
+                <span className="block text-[40px] sm:text-[56px] md:text-[72px]">Scalpers</span>
+                <span className="block text-[40px] sm:text-[56px] md:text-[72px]">hate this</span>
                 <span className="relative inline-block mt-1">
-                  <span className="relative z-10 bg-ink text-white px-4 pb-1.5 -rotate-2 inline-block text-[72px]">
+                  <span className="relative z-10 bg-ink text-white px-4 pb-1.5 -rotate-2 inline-block text-[40px] sm:text-[56px] md:text-[72px]">
                     one ticket
                   </span>
                   <span className="absolute -bottom-2 -right-3 -z-0 w-full h-full bg-soft-green rounded-lg -rotate-2" />
@@ -84,9 +84,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* INTERACTIVE DEMO — tap the front ticket to actually watch it get verified */}
-            <div className="relative h-[440px] flex items-center justify-center">
-              <div className="relative w-full flex items-center justify-center scale-[1.05]">
+            <div className="relative h-[300px] sm:h-[380px] md:h-[440px] flex items-center justify-center">
+              <div className="relative w-full flex items-center justify-center scale-[0.62] sm:scale-[0.85] md:scale-[1.05]">
                 <TicketStub
                   eventName={'NH7 Weekender'}
                   subtitle="Prateek Kuhad"
@@ -129,7 +128,7 @@ export default function Home() {
                   )}
                 </button>
               </div>
-              <span className="absolute bottom-2 left-1/2 -translate-x-1/2 font-mono text-[11px] text-ink-soft">
+              <span className="absolute bottom-0 sm:bottom-2 left-1/2 -translate-x-1/2 font-mono text-[10px] sm:text-[11px] text-ink-soft whitespace-nowrap">
                 ↑ tap the front ticket
               </span>
             </div>
@@ -139,17 +138,17 @@ export default function Home() {
 
       <ActivityTicker />
 
-      {/* TICKET WALL — horizontal scroll, real motion instead of a static trust strip */}
+      {/* TICKET WALL */}
       <section className="border-b-2 border-ink bg-white py-8 overflow-hidden">
-        <div className="max-w-[1120px] mx-auto px-8 mb-4 flex items-center justify-between">
-          <span className="font-mono text-[11px] uppercase tracking-wider text-ink-soft">
+        <div className="max-w-[1120px] mx-auto px-6 sm:px-8 mb-4 flex items-center justify-between">
+          <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-wider text-ink-soft">
             Live on the network right now
           </span>
           <span className="font-mono text-[11px] text-ink-soft hidden sm:inline">
             scroll to browse →
           </span>
         </div>
-        <div className="flex gap-4 overflow-x-auto px-8 pb-2 snap-x snap-mandatory scrollbar-thin">
+        <div className="flex gap-4 overflow-x-auto px-6 sm:px-8 pb-2 snap-x snap-mandatory">
           {wallTickets.map((t) => (
             <div key={t.ticketNo} className="snap-start shrink-0 scale-[0.8] origin-top-left">
               <TicketStub {...t} />
@@ -158,19 +157,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROBLEM — angled section, breaks the flat rectangle stack */}
+      {/* PROBLEM */}
       <section
-        className="relative bg-line/25 pt-20 pb-28"
+        className="relative bg-line/25 pt-16 sm:pt-20 pb-20 sm:pb-28"
         style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 48px), 0 100%)' }}
       >
-        <div className="max-w-[1120px] mx-auto px-8">
-          <h2 className="font-display font-extrabold text-[40px] tracking-tight max-w-[680px] mb-10 leading-[1.05]">
+        <div className="max-w-[1120px] mx-auto px-6 sm:px-8">
+          <h2 className="font-display font-extrabold text-[28px] sm:text-[34px] md:text-[40px] tracking-tight max-w-[680px] mb-10 leading-[1.1]">
             Coldplay Mumbai sold out in minutes.
             <br />
             What followed on WhatsApp had <span className="text-taupe">zero rules.</span>
           </h2>
           <div className="grid md:grid-cols-5 gap-5">
-            <div className="md:col-span-3 p-8 border-2 border-ink rounded-card bg-white">
+            <div className="md:col-span-3 p-6 sm:p-8 border-2 border-ink rounded-card bg-white">
               <div className="font-mono text-xs font-semibold mb-4 text-ink-soft">01 — RIGHT NOW</div>
               <h3 className="font-display font-bold text-2xl mb-3">Untraceable resale</h3>
               <p className="text-[15px] text-ink-soft max-w-[380px]">
@@ -178,17 +177,17 @@ export default function Home() {
                 owns them.
               </p>
             </div>
-            <div className="md:col-span-2 p-8 border-2 border-ink rounded-card bg-pale-blue">
+            <div className="md:col-span-2 p-6 sm:p-8 border-2 border-ink rounded-card bg-pale-blue">
               <div className="font-mono text-xs font-semibold mb-4">02 — RIGHT NOW</div>
               <h3 className="font-display font-bold text-2xl mb-3">Bots buy in bulk</h3>
               <p className="text-[15px] text-ink/70">₹500 tickets flipped for 5–10x within the hour.</p>
             </div>
-            <div className="md:col-span-2 p-8 border-2 border-ink rounded-card bg-beige">
+            <div className="md:col-span-2 p-6 sm:p-8 border-2 border-ink rounded-card bg-beige">
               <div className="font-mono text-xs font-semibold mb-4">03 — VERITIX</div>
               <h3 className="font-display font-bold text-2xl mb-3">One owner, provable</h3>
               <p className="text-[15px] text-ink/70">Ownership lives on-chain, verifiable up front.</p>
             </div>
-            <div className="md:col-span-3 p-8 border-2 border-ink rounded-card bg-soft-green">
+            <div className="md:col-span-3 p-6 sm:p-8 border-2 border-ink rounded-card bg-soft-green">
               <div className="font-mono text-xs font-semibold mb-4">04 — VERITIX</div>
               <h3 className="font-display font-bold text-2xl mb-3">Resale, hard-capped at 20%</h3>
               <p className="text-[15px] text-ink/70 max-w-[380px]">
@@ -199,8 +198,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* HOW IT WORKS — zigzag journey path instead of four equal boxes */}
-      <section className="relative bg-ink text-white pt-24 pb-28 -mt-12 overflow-hidden">
+      {/* HOW IT WORKS */}
+      <section className="relative bg-ink text-white pt-16 sm:pt-24 pb-20 sm:pb-28 -mt-12 overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.08] pointer-events-none"
           style={{
@@ -208,13 +207,13 @@ export default function Home() {
             backgroundSize: '24px 24px',
           }}
         />
-        <div className="relative max-w-[1120px] mx-auto px-8">
-          <h2 className="font-display font-extrabold text-4xl tracking-tight mb-16">
+        <div className="relative max-w-[1120px] mx-auto px-6 sm:px-8">
+          <h2 className="font-display font-extrabold text-[28px] sm:text-3xl md:text-4xl tracking-tight mb-12 sm:mb-16">
             From mint to gate, four steps
           </h2>
           <div className="relative">
             <div className="hidden md:block absolute top-1/2 left-0 right-0 h-px border-t-2 border-dashed border-white/20" />
-            <div className="grid md:grid-cols-4 gap-8 md:gap-4">
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
               {steps.map((s, i) => (
                 <div
                   key={s.n}
@@ -240,26 +239,26 @@ export default function Home() {
 
       {/* STATS band */}
       <section className="bg-white border-b-2 border-ink">
-        <div className="max-w-[1120px] mx-auto px-8 py-10 grid grid-cols-3">
+        <div className="max-w-[1120px] mx-auto px-6 sm:px-8 py-8 sm:py-10 grid grid-cols-3">
           {[
             ['<5s', 'gate verification'],
             ['20%', 'hard resale cap'],
             ['₹0', 'gas fee shock'],
           ].map(([n, label], i) => (
-            <div key={label} className={`text-center ${i !== 2 ? 'border-r-2 border-line' : ''}`}>
-              <b className="font-display font-extrabold text-5xl block mb-1">{n}</b>
-              <span className="font-mono text-xs text-ink-soft uppercase tracking-wide">{label}</span>
+            <div key={label} className={`text-center px-1 ${i !== 2 ? 'border-r-2 border-line' : ''}`}>
+              <b className="font-display font-extrabold text-2xl sm:text-4xl md:text-5xl block mb-1">{n}</b>
+              <span className="font-mono text-[9px] sm:text-xs text-ink-soft uppercase tracking-wide">{label}</span>
             </div>
           ))}
         </div>
       </section>
 
       {/* FOOTER CTA */}
-      <section className="relative bg-taupe text-white py-24 px-8 text-center overflow-hidden">
+      <section className="relative bg-taupe text-white py-16 sm:py-24 px-6 sm:px-8 text-center overflow-hidden">
         <div className="absolute -bottom-24 -right-24 w-[300px] h-[300px] bg-soft-green/20 rounded-full blur-[90px]" />
         <div className="absolute -top-24 -left-24 w-[300px] h-[300px] bg-pale-blue/20 rounded-full blur-[90px]" />
         <div className="relative">
-          <h2 className="font-display font-extrabold text-[46px] tracking-tight mb-4 leading-[1.05]">
+          <h2 className="font-display font-extrabold text-[28px] sm:text-[36px] md:text-[46px] tracking-tight mb-4 leading-[1.1]">
             Bring VeriTix to your fest
           </h2>
           <p className="text-white/70 max-w-[440px] mx-auto mb-9">

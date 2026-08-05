@@ -44,7 +44,7 @@ export default function Wallet() {
   }
 
   return (
-    <div className="max-w-[1120px] mx-auto px-8 py-16">
+    <div className="max-w-[1120px] mx-auto px-6 sm:px-8 py-12 sm:py-16">
       <h1 className="font-display font-extrabold text-4xl mb-2">My tickets</h1>
       <p className="text-ink-soft mb-10">
         No login needed — just the email you used when you bought.

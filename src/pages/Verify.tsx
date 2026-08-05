@@ -45,7 +45,7 @@ export default function Verify() {
           backgroundSize: '24px 24px',
         }}
       />
-      <div className="relative max-w-[560px] mx-auto px-8 py-16 text-center">
+      <div className="relative max-w-[560px] mx-auto px-6 sm:px-8 py-12 sm:py-16 text-center">
         <div className="inline-flex items-center gap-1.5 font-mono text-[11.5px] px-3 py-1.5 rounded-pill border-2 border-ink bg-pale-blue mb-6">
           Gate scanner
         </div>
@@ -102,7 +102,7 @@ export default function Verify() {
               )}
               <button
                 onClick={reset}
-                className="w-full bg-white px-6 py-3 rounded-pill font-semibold border-2 border-ink"
+                className="w-full bg-paper px-6 py-3 rounded-pill font-semibold border-2 border-ink"
               >
                 Scan next ticket
               </button>

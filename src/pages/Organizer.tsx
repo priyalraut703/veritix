@@ -58,11 +58,11 @@ export default function Organizer() {
       />
       <div className="absolute -top-20 -left-32 w-[420px] h-[420px] bg-beige/40 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="relative max-w-[1120px] mx-auto px-8 py-16">
+      <div className="relative max-w-[1120px] mx-auto px-6 sm:px-8 py-12 sm:py-16">
         <div className="inline-flex items-center gap-1.5 font-mono text-[11.5px] px-3 py-1.5 rounded-pill border-2 border-ink bg-beige mb-6">
           For organizers
         </div>
-        <h1 className="font-display font-extrabold text-5xl mb-3 tracking-tight">List your fest</h1>
+        <h1 className="font-display font-extrabold text-4xl sm:text-5xl mb-3 tracking-tight">List your fest</h1>
         <p className="text-ink-soft mb-14 max-w-md">
           Every event you create here is minted as a real on-chain event — tickets sold against
           it are automatically fraud-proof and resale-capped at 20%.

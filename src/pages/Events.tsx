@@ -80,11 +80,11 @@ export default function Events() {
       />
       <div className="absolute -top-20 -right-32 w-[420px] h-[420px] bg-pale-blue/50 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="relative max-w-[1120px] mx-auto px-8 py-16">
+      <div className="relative max-w-[1120px] mx-auto px-6 sm:px-8 py-12 sm:py-16">
         <div className="inline-flex items-center gap-1.5 font-mono text-[11.5px] px-3 py-1.5 rounded-pill border-2 border-ink bg-soft-green mb-6">
           <span className="w-1.5 h-1.5 rounded-full bg-ink animate-pulse" /> minted live, on testnet
         </div>
-        <h1 className="font-display font-extrabold text-5xl mb-3 tracking-tight">Browse events</h1>
+        <h1 className="font-display font-extrabold text-4xl sm:text-5xl mb-3 tracking-tight">Browse events</h1>
         <p className="text-ink-soft mb-14 max-w-md">
           Every ticket below is minted on-chain the moment you buy it — no wallet setup required.
         </p>
