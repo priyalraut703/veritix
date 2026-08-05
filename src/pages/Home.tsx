@@ -85,14 +85,14 @@ export default function Home() {
             </div>
 
             <div className="relative h-[300px] sm:h-[380px] md:h-[440px] flex items-center justify-center">
-              <div className="relative w-full flex items-center justify-center scale-[0.62] sm:scale-[0.85] md:scale-[1.05]">
+              <div className="relative w-full flex items-center justify-center scale-[0.5] sm:scale-[0.85] md:scale-[1.05]">
                 <TicketStub
                   eventName={'NH7 Weekender'}
                   subtitle="Prateek Kuhad"
                   ticketNo="0472"
                   tier="GA"
                   accent="blue"
-                  rotateClass="absolute -rotate-[16deg] -translate-x-24 translate-y-6"
+                  rotateClass="absolute -rotate-[16deg] -translate-x-10 sm:-translate-x-20 md:-translate-x-24 translate-y-6"
                 />
                 <TicketStub
                   eventName={'College Fest Pass'}
@@ -100,7 +100,7 @@ export default function Home() {
                   ticketNo="1187"
                   tier="3-DAY"
                   accent="green"
-                  rotateClass="absolute rotate-[10deg] translate-x-20 -translate-y-4"
+                  rotateClass="absolute rotate-[10deg] translate-x-8 sm:translate-x-16 md:translate-x-20 -translate-y-4"
                 />
                 <button
                   onClick={runScan}
