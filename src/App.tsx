@@ -5,6 +5,7 @@ import Events from './pages/Events'
 import Wallet from './pages/Wallet'
 import Organizer from './pages/Organizer'
 import Verify from './pages/Verify'
+import Feedback from './pages/Feedback'
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/wallet" element={<Wallet />} />
         <Route path="/organizer" element={<Organizer />} />
         <Route path="/verify" element={<Verify />} />
+        <Route path="/feedback" element={<Feedback />} />
       </Routes>
     </>
   )

@@ -13,14 +13,31 @@ export default function Organizer() {
   const [price, setPrice] = useState('100')
   const [result, setResult] = useState<CreateResult>({ status: 'idle' })
   const [events, setEvents] = useState<EventRow[]>([])
+  const [stats, setStats] = useState({ minted: 0, verified: 0, blocked: 0, avgRating: null as number | null })
 
   async function loadEvents() {
     const { data } = await supabase.from('events').select('*').order('id', { ascending: false })
     setEvents(data ?? [])
   }
 
+  async function loadStats() {
+    const { data: log } = await supabase.from('activity_log').select('kind')
+    const minted = log?.filter((l) => l.kind === 'mint').length ?? 0
+    const verified = log?.filter((l) => l.kind === 'verify').length ?? 0
+    const blocked = log?.filter((l) => l.kind === 'block').length ?? 0
+
+    const { data: feedback } = await supabase.from('feedback').select('rating')
+    const avgRating =
+      feedback && feedback.length > 0
+        ? feedback.reduce((sum, f) => sum + (f.rating ?? 0), 0) / feedback.length
+        : null
+
+    setStats({ minted, verified, blocked, avgRating })
+  }
+
   useEffect(() => {
     loadEvents()
+    loadStats()
   }, [])
 
   async function createEvent() {
@@ -45,6 +62,7 @@ export default function Organizer() {
     setVenue('')
     setPrice('100')
     loadEvents()
+    loadStats()
   }
 
   return (
@@ -63,10 +81,31 @@ export default function Organizer() {
           For organizers
         </div>
         <h1 className="font-display font-extrabold text-4xl sm:text-5xl mb-3 tracking-tight">List your fest</h1>
-        <p className="text-ink-soft mb-14 max-w-md">
+        <p className="text-ink-soft mb-10 max-w-md">
           Every event you create here is minted as a real on-chain event — tickets sold against
           it are automatically fraud-proof and resale-capped at 20%.
         </p>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-14">
+          <div className="border-2 border-ink rounded-card bg-white p-4 text-center">
+            <div className="font-display font-extrabold text-3xl">{stats.minted}</div>
+            <div className="font-mono text-[10px] text-ink-soft uppercase">tickets minted</div>
+          </div>
+          <div className="border-2 border-ink rounded-card bg-soft-green p-4 text-center">
+            <div className="font-display font-extrabold text-3xl">{stats.verified}</div>
+            <div className="font-mono text-[10px] uppercase">gate verifications</div>
+          </div>
+          <div className="border-2 border-ink rounded-card bg-beige p-4 text-center">
+            <div className="font-display font-extrabold text-3xl">{stats.blocked}</div>
+            <div className="font-mono text-[10px] uppercase">fraud attempts blocked</div>
+          </div>
+          <div className="border-2 border-ink rounded-card bg-pale-blue p-4 text-center">
+            <div className="font-display font-extrabold text-3xl">
+              {stats.avgRating ? stats.avgRating.toFixed(1) : '—'}
+            </div>
+            <div className="font-mono text-[10px] uppercase">avg tester rating</div>
+          </div>
+        </div>
 
         <div className="grid md:grid-cols-[1fr_1.2fr] gap-12">
           <div className="border-2 border-ink rounded-card bg-white p-8 shadow-hard h-fit">

@@ -149,6 +149,12 @@ export default function Events() {
                       >
                         View transaction
                       </a>
+                      <a
+                        href="/feedback"
+                        className="block mt-3 text-xs font-semibold bg-soft-green rounded-pill px-3 py-2 border-2 border-ink"
+                      >
+                        Got 30 sec? Tell us how it went →
+                      </a>
                     </div>
                   ) : (
                     <>
